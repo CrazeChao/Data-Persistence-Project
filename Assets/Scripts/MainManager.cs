@@ -66,11 +66,16 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+        UserDataManager.instance.userData.score = m_Points;
+        UserDataManager.instance.saveData();
     }
+
+
 
     public void GameOver()
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
     }
 }
